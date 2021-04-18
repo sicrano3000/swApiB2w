@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: swApiB2w
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: sicra
+Implementation-Vendor-Id: br.com.b2w.swapi
+Build-Jdk: 1.8.0_231
+Implementation-URL: http://projects.spring.io/spring-boot/swApiB2w/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
