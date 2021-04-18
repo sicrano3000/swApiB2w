@@ -62,6 +62,10 @@ public class Planeta {
     public Planeta() {
 	}
     
+    public Planeta(String nome) {
+		this.nome = nome;
+	}
+    
 	public Planeta(long id, String nome, String clima, String terreno, Integer filmes) {
 		this.id = id;
 		this.nome = nome;

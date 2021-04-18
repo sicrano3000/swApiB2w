@@ -125,16 +125,23 @@ public class PlanetaController {
      * @param nome
      * @return HttpEntity<PlanetResponseBody>
      */
-    @RequestMapping(path = "/planetas/", method = RequestMethod.GET)
+	@RequestMapping(path = "/planetas/", method = RequestMethod.GET)
     public HttpEntity<PlanetaResponseDTO> findByName(@RequestParam("nome") String nome) {
         PlanetaResponseDTO responseBody = new PlanetaResponseDTO();
 
         try {
+        	if (nome.isEmpty()) {
+        		responseBody.setDescricao("Nenhum planeta encontrado");
+        		log.error("Nenhum planeta com o nome: " + nome + " foi encontrado!");
+        		
+        		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseBody);
+        	}
+        	
             Planeta planeta = planetService.findByNome(nome);
 
-            if (planeta != null ? true : false) {
+            if (planeta == null || planeta.getNome().equals("error") ? false : true) {
                 responseBody.setPlaneta(planeta);
-                log.info("Buscando planeta pelo nome: " + planeta);
+                log.info("Buscando planeta pelo nome: " + nome);
 
                 return ResponseEntity.status(HttpStatus.OK).body(responseBody);
             } else {

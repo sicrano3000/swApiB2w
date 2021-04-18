@@ -50,7 +50,7 @@ public class PlanetaService {
     	Planeta planeta = repository.findByNome(nome);
     	
     	if (planeta == null)
-    		planeta = new Planeta();
+    		planeta = new Planeta("error");
     	
         return planeta;
     }
